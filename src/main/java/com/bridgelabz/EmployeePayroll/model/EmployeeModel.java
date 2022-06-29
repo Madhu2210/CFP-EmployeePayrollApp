@@ -1,5 +1,7 @@
 package com.bridgelabz.EmployeePayroll.model;
 
+import com.bridgelabz.EmployeePayroll.dto.EmployeeModelDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -47,67 +49,95 @@ public class EmployeeModel {
     }
 
     public String getEmployeeName() {
+
         return employeeName;
     }
 
     public void setEmployeeName(String employeeName) {
+
         this.employeeName = employeeName;
     }
 
     public String getGender() {
+
         return gender;
     }
 
     public void setGender(String gender) {
+
         this.gender = gender;
     }
 
     public String getDepartment() {
+
         return department;
     }
 
     public void setDepartment(String department) {
+
         this.department = department;
     }
 
     public long getSalary() {
+
         return salary;
     }
 
     public void setSalary(long salary) {
+
         this.salary = salary;
     }
 
     public String getEmailId() {
+
         return emailId;
     }
 
     public void setEmailId(String emailId) {
+
         this.emailId = emailId;
     }
 
     public LocalDate getJoiningDate() {
+
         return joiningDate;
     }
 
     public void setJoiningDate(LocalDate joiningDate) {
+
         this.joiningDate = joiningDate;
     }
 
     public String getProfilePic() {
+
         return profilePic;
     }
 
     public void setProfilePic(String profilePic) {
+
         this.profilePic = profilePic;
     }
 
     public String getNote() {
+
         return note;
     }
 
     public void setNote(String note) {
+
         this.note = note;
+    }
+
+    public EmployeeModel(EmployeeModelDTO employeeModelDTO){
+        this.employeeName=employeeModelDTO.getEmployeeName();
+        this.gender=employeeModelDTO.getGender();
+        this.department=employeeModelDTO.getDepartment();
+        this.salary=employeeModelDTO.getSalary();
+        this.emailId=employeeModelDTO.getEmailId();
+        this.joiningDate=employeeModelDTO.getJoiningDate();
+        this.profilePic=employeeModelDTO.getProfilePic();
+        this.note=employeeModelDTO.getNote();
+
     }
 
     @Override
