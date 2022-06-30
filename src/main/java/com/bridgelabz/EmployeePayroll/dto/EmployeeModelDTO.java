@@ -1,94 +1,36 @@
-package com.bridgelabz.EmployeePayroll.dto;
+    package com.bridgelabz.EmployeePayroll.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+@Data
+@NoArgsConstructor
+@ToString
 public class EmployeeModelDTO {
-
+    @Pattern(regexp= "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Employee name invalid")
     private String employeeName;
+    @Pattern(regexp = "male|female", message = "Gender needs to be either male or female")
     private String gender;
+    @Pattern(regexp= "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Department should not be null")
     private String department;
+    @Min(value = 12000, message = "minimum salary should be more that 12000")
     private long salary;
+    @Email
     private String emailId;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @NotNull (message="start date should not be empty")
     private LocalDate joiningDate;
+
     private String profilePic;
+    @NotBlank(message = "Note cannot be blank")
     private String note;
 
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(long salary) {
-        this.salary = salary;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
-    public LocalDate getJoiningDate() {
-        return joiningDate;
-    }
-
-    public void setJoiningDate(LocalDate joiningDate) {
-        this.joiningDate = joiningDate;
-    }
-
-    public String getProfilePic() {
-        return profilePic;
-    }
-
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public EmployeeModelDTO(String employeeName, String gender, String department, long salary, String emailId, LocalDate joiningDate, String profilePic, String note) {
-        this.employeeName = employeeName;
-        this.gender = gender;
-        this.department = department;
-        this.salary = salary;
-        this.emailId = emailId;
-        this.joiningDate = joiningDate;
-        this.profilePic = profilePic;
-        this.note = note;
-    }
-
-    public EmployeeModelDTO() {
-    }
 
 }
