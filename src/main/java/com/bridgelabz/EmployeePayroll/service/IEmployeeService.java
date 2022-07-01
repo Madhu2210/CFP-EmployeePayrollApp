@@ -18,4 +18,5 @@ public interface IEmployeeService {
 
     EmployeeModel updateEmployee(long getId, EmployeeModelDTO employeeModelDTO);
 
+    List<EmployeeModel> getEmployeesByDepartment(String department);
 }
